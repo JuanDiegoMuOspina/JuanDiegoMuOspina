@@ -1,40 +1,55 @@
 package com.juan.clase;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Value;
+
+import net.bytebuddy.implementation.bind.MethodDelegationBinder.BindingResolver.Unique;
+
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
-  private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
-  private String name;
+	private String name;
 
-  private String email;
+	private String email;
 
-  public Integer getId() {
-    return id;
-  }
+	private String apellido;
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+	public String getApellido() {
+		return apellido;
+	}
 
-  public String getName() {
-    return name;
-  }
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 
-  public void setName(String name) {
-    this.name = name;
-  }
+	public Integer getId() {
+		return id;
+	}
 
-  public String getEmail() {
-    return email;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
