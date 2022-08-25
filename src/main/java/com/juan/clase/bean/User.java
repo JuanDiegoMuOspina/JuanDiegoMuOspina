@@ -1,5 +1,6 @@
-package com.juan.clase;
+package com.juan.clase.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	@Column(unique = true)
+	private Long cedula;
 
 	private String name;
 
@@ -52,4 +55,14 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Long getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(Long cedula) {
+		this.cedula = cedula;
+	}
+	
+	
 }

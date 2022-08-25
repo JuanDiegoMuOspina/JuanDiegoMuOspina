@@ -1,4 +1,4 @@
-package com.juan.clase;
+package com.juan.clase.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.juan.clase.bean.RespuesBd;
+import com.juan.clase.bean.User;
+import com.juan.clase.repository.UserRepository;
+
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/user") // This means URL's start with /demo (after Application path)
 public class MainController {
@@ -17,8 +21,8 @@ public class MainController {
   private UserRepository userRepository;
 
   @PostMapping(path="/add") // Map ONLY POST Requests
-  public @ResponseBody String addNewUser (@RequestParam String name
-      , @RequestParam String email, String apellido) {
+  public @ResponseBody RespuesBd addNewUser (@RequestParam String name
+      , @RequestParam String email, String apellido,Long cedula) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
@@ -26,8 +30,19 @@ public class MainController {
     n.setName(name);
     n.setEmail(email);
     n.setApellido(apellido);
-    userRepository.save(n);
-    return "Saved";
+    n.setCedula(cedula);
+    
+    RespuesBd respuesta= new RespuesBd();
+    try {
+		userRepository.save(n);
+		respuesta.setError("usuario Salvado");
+	} catch (Exception  e ) {
+		// TODO Auto-generated catch block
+		respuesta.setRespuesta("Error en agregar usuario");
+		respuesta.setError(e.getMessage());
+	}
+    return respuesta;
+    		
   }
 
   @GetMapping(path="/all")

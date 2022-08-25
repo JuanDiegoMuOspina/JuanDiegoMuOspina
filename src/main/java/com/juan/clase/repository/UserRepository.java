@@ -1,8 +1,9 @@
-package com.juan.clase;
+package com.juan.clase.repository;
 
 
 import org.springframework.data.repository.CrudRepository;
-import com.juan.clase.User;
+
+import com.juan.clase.bean.User;
 
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
