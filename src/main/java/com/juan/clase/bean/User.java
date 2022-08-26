@@ -52,7 +52,10 @@ public class User {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email) throws Exception {
+		if (!email.contains("@")) {
+			throw new Exception("El email no cumple formato");
+		}
 		this.email = email;
 	}
 
