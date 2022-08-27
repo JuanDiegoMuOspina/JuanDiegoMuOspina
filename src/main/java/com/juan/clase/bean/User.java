@@ -5,10 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.beans.factory.annotation.Value;
-
-import net.bytebuddy.implementation.bind.MethodDelegationBinder.BindingResolver.Unique;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -23,6 +21,9 @@ public class User {
 	private String email;
 
 	private String apellido;
+	@OneToOne
+	@JoinColumn(name = "celular_id")
+	private Celular celular;
 
 	public String getApellido() {
 		return apellido;
@@ -66,6 +67,13 @@ public class User {
 	public void setCedula(Long cedula) {
 		this.cedula = cedula;
 	}
-	
-	
+
+	public Celular getCelular() {
+		return celular;
+	}
+
+	public void setCelular(Celular celular) {
+		this.celular = celular;
+	}
+
 }
