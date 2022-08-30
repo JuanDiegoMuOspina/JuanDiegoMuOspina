@@ -1,11 +1,12 @@
 package com.juan.clase.bean;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-
+@Entity
 public class Celular {
 
 	@Id
@@ -17,7 +18,7 @@ public class Celular {
 	private String marca;
 
 	private String modelo;
-	@OneToOne(mappedBy = "user")
+	@OneToOne(mappedBy = "celular")
 	private User user;
 
 	public User getUser() {
