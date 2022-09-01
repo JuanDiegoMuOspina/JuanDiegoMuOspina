@@ -68,12 +68,14 @@ public class User {
 		this.cedula = cedula;
 	}
 
-	public Celular getCelular() {
-		return celular;
-	}
+
 
 	public void setCelular(Celular celular) {
 		this.celular = celular;
+	}
+
+	public long getCelular() {
+		return celular.getId();
 	}
 
 }
