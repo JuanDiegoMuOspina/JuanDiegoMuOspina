@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.juan.clase.bean.Celular;
-import com.juan.clase.bean.RespuesBd;
 import com.juan.clase.bean.User;
 import com.juan.clase.repository.UserRepository;
+
+import output.RespuesBd;
+
 import com.juan.clase.repository.CelularRepository;
 
 @Controller // This means that this class is a Controller

@@ -1,4 +1,4 @@
-package com.juan.clase.bean;
+package output;
 
 public class RespuesBd {
 
